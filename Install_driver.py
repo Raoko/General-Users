@@ -25,4 +25,4 @@ def install(url):
     f.close()
 
 install("https://chromedriver.storage.googleapis.com/2.32/chromedriver_win32.zip")
-install('https://www.dropbox.com/sh/at3pf3fukrcfm5z/AADNTn_n0i782aOnYj6COjZPa?dl=0')
+#install('https://www.dropbox.com/sh/at3pf3fukrcfm5z/AADNTn_n0i782aOnYj6COjZPa?dl=0')
