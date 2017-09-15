@@ -6,9 +6,9 @@ setup(windows=["login.py", "install_driver"],
       options={
           'py2exe':{
               'packages': ['selenium', 'Webmate', 'pyautogui'],
-              "skip_archive":True,
-              "unbuffered": True,
-              "optimize":2
+              #"skip_archive":True,
+              #"unbuffered": True,
+              #"optimize":2
               }
           }
       )
