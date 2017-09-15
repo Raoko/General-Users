@@ -2,7 +2,7 @@
 from distutils.core import setup
 import py2exe
 
-setup(windows=["login.py", "install_driver"],
+setup(windows=["login.py", "install_driver.py"],
       options={
           'py2exe':{
               'packages': ['selenium', 'Webmate', 'pyautogui'],
