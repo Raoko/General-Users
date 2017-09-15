@@ -42,28 +42,28 @@ class automatelogin():
         self.officelogin = webmate("http://office.yourclg.com/")
         self.officelogin.loadDriver(PHANTOM=False)
         self.officelogin.formInput(XPATH='//*[@id="edit-name"]', KEY='general1')
-        self.officelogin.formInput(XPATH='//*[@id="edit-pass"]', KEY='clg1234!')
+        self.officelogin.formInput(XPATH='//*[@id="edit-pass"]', KEY='')
         self.officelogin.buttonClick(XPATH='//*[@id="edit-submit"]')
 
     def phone(self):
         self.phonesystemlogin = webmate('http://admin.phonesystem.yourclg.com/cti/')
         self.phonesystemlogin.loadDriver(PHANTOM=False)
         self.phonesystemlogin.formInput(XPATH='//*[@id="username"]', KEY='general1')
-        self.phonesystemlogin.formInput(XPATH='//*[@id="password"]', KEY='clg1234!')
+        self.phonesystemlogin.formInput(XPATH='//*[@id="password"]', KEY='')
         self.phonesystemlogin.buttonClick(XPATH='//*[@id="button"]')
 
     def logic(self):
         self.logiclogin = webmate('https://clg.irslogics.com/')
         self.logiclogin.loadDriver(PHANTOM=False)
         self.logiclogin.formInput(XPATH='//*[@id="txtUsername2"]', KEY='general1@consumerlaw.com')
-        self.logiclogin.formInput(XPATH='//*[@id="txtPassword2"]', KEY='Santana007!')
+        self.logiclogin.formInput(XPATH='//*[@id="txtPassword2"]', KEY='')
         self.logiclogin.buttonClick(XPATH='//*[@id="btnLogin2"]')
 
     def email(self):
         self.emaillogin = webmate('https://goo.gl/qixfyG')
         self.emaillogin.loadDriver(PHANTOM='False')
         self.emaillogin.formInput(XPATH='//*[@id="cred_userid_inputtext"]', KEY='general1@consumerlaw.com')
-        self.emaillogin.formInput(XPATH='//*[@id="cred_password_inputtext"]', KEY='Santana007!')
+        self.emaillogin.formInput(XPATH='//*[@id="cred_password_inputtext"]', KEY='')
         self.emaillogin.buttonClick(XPATH='//*[@id="cred_sign_in_button"]')
 
 if __name__ == '__main__':
