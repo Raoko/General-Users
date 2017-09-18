@@ -19,7 +19,7 @@ class webmate():
         self.driver = webdriver.Chrome(chrome_options=self.chrome_options)
         self.driver.get(self.URL)
 
-    def formInput(self, ID=None, XPATH=None, NAME=None, KEY=None):
+    def formInput(self, ID=None, XPATH=None, NAME=None, KEY=None, pressEnter=False):
         self.driver.implicitly_wait(10)
         if XPATH:
             elem = self.driver.find_element_by_xpath(XPATH)
@@ -28,6 +28,8 @@ class webmate():
         elif NAME:
             elem = self.driver.find_element_by_name(NAME)
         elem.send_keys(KEY)
+        if pressEnter == True:
+            elem.send_keys(Keys.RETURN)
 
     def buttonClick(self, ID=None, XPATH=None, NAME=None):
         self.driver.implicitly_wait(10)

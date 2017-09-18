@@ -63,8 +63,7 @@ class automatelogin():
         self.emaillogin = webmate('https://goo.gl/qixfyG')
         self.emaillogin.loadDriver(PHANTOM='False')
         self.emaillogin.formInput(XPATH='//*[@id="cred_userid_inputtext"]', KEY='general1@consumerlaw.com')
-        self.emaillogin.formInput(XPATH='//*[@id="cred_password_inputtext"]', KEY='')
-        self.emaillogin.buttonClick(XPATH='//*[@id="cred_sign_in_button"]')
+        self.emaillogin.formInput(XPATH='//*[@id="cred_password_inputtext"]', KEY='', pressEnter=True)
 
 if __name__ == '__main__':
     log = automatelogin()
