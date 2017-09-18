@@ -21,20 +21,20 @@ class automatelogin():
     def main(self):
         while True:
             sleep = 0.1 #seconds of sleep
-            self.startButton = pg.confirm(text='Consumer Law Group', title='General 1',buttons=['Office', 'Phone System', 'Logic', 'Email(Correo)'])
-            if self.startButton == 'Office':
+            self.startButton = pg.confirm(text='\n\n\nCONSUMER   LAW   GROUP\n\n', title='CLG USER: GENERAL 1',buttons=['\n    Office    \n', '\nPhone System\n', '\n     Logic     \n', '\nEmail(Correo)\n'])
+            if self.startButton == '\n    Office    \n':
                 self.office()
                 time.sleep(sleep)
                 continue
-            elif self.startButton == 'Phone System':
+            elif self.startButton == '\nPhone System\n':
                 self.phone()
                 time.sleep(sleep)
                 continue
-            elif self.startButton == 'Logic':
+            elif self.startButton == '\n     Logic     \n':
                 self.logic()
                 time.sleep(sleep)
                 continue
-            elif self.startButton == 'Email(Correo)':
+            elif self.startButton == '\nEmail(Correo)\n':
                 self.email()
                 time.sleep(sleep)
                 continue
