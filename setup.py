@@ -2,6 +2,7 @@
 from distutils.core import setup
 import py2exe
 import Files
+import os
 
 wd_path = 'C:\\Python27\\Lib\\site-packages\\selenium\\webdriver'
 required_data_files = [('selenium/webdriver/remote',['{}\\remote\\getAttribute.js'.format(wd_path),'{}\\remote\\isDisplayed.js'.format(wd_path)])]
@@ -18,3 +19,6 @@ setup(
               }
           }
       )
+
+
+
