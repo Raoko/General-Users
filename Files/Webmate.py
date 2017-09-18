@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 import pyautogui as pg
 import subprocess
+import time
 
 class webmate():
 
@@ -20,6 +21,7 @@ class webmate():
         self.driver.get(self.URL)
 
     def formInput(self, ID=None, XPATH=None, NAME=None, KEY=None, pressEnter=False):
+        time.sleep(1)
         self.driver.implicitly_wait(10)
         if XPATH:
             elem = self.driver.find_element_by_xpath(XPATH)
@@ -32,6 +34,7 @@ class webmate():
             elem.send_keys(Keys.RETURN)
 
     def buttonClick(self, ID=None, XPATH=None, NAME=None):
+        time.sleep(1)
         self.driver.implicitly_wait(10)
         if XPATH:
             self.driver.find_element_by_xpath(XPATH).click()
