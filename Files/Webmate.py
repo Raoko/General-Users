@@ -43,8 +43,9 @@ class webmate():
         elif NAME:
             self.driver.find_element_by_name(NAME).click()
 
-    def kill(self):
-        subprocess.call(["taskkill", "/f", "/IM", "chromedriver.exe"])
-
+    def kill(self, arg, times=1):
+        for i in range(times):
+            subprocess.call(["taskkill", "/f", "/IM", arg])
+        
 if __name__ == "__main__":
     pass
