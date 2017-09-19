@@ -31,6 +31,7 @@ class webmate():
             elem = self.driver.find_element_by_name(NAME)
         elem.send_keys(KEY)
         if pressEnter == True:
+            time.sleep(1)
             elem.send_keys(Keys.RETURN)
 
     def buttonClick(self, ID=None, XPATH=None, NAME=None):

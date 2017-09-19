@@ -26,10 +26,10 @@ class automatelogin():
                     "general2",
                     "general3"
                         ]
-        self.usuario = pg.prompt(text="USER:     general1  ,   general2  ,   general3  ", title="Consumer Law Group")
+        self.usuario = pg.prompt(text="Username", title="Consumer Law Group")
         if self.usuario in self.users:
             for i in range(1):
-                contrasena = pg.password("Password")
+                contrasena = pg.password(text="Password", title="Consumer Law Group")
                 if contrasena == "consumer123":
                     break
                 else:
@@ -50,28 +50,28 @@ class automatelogin():
     def main(self):
         while True:
             sleep = 0.1 #seconds of sleep
-            self.startButton = pg.confirm(text='\n\n\nCLG USER:     ' + self.usuario + '\n\n', title='CONSUMER   LAW   GROUP',buttons=['\n    Office    \n', '\nPhone System\n', '\n     Logic     \n', '\nEmail(Correo)\n'])
+            self.startButton = pg.confirm(text='\n\n\nCLG USER:     ' + self.usuario + '\n\n', title='Consumer Law Group',buttons=['\n    Office    \n', '\nPhone System\n', '\n     Logic     \n', '\nEmail(Correo)\n'])
             if self.startButton == '\n    Office    \n':
                 self.office()
                 time.sleep(sleep)
-                continue
+                break
             elif self.startButton == '\nPhone System\n':
                 self.phone()
                 time.sleep(sleep)
-                continue
+                break
             elif self.startButton == '\n     Logic     \n':
                 self.logic()
                 time.sleep(sleep)
-                continue
+                break
             elif self.startButton == '\nEmail(Correo)\n':
                 self.email()
                 time.sleep(sleep)
-                continue
+                break
             else:
                 break
+    
             
     def office(self):
-        self.glob.kill('chrome.exe')
         self.officelogin = webmate("http://office.yourclg.com/")
         self.officelogin.loadDriver(PHANTOM=False)
         self.officelogin.formInput(XPATH='//*[@id="edit-name"]', KEY=self.usuario)
@@ -80,7 +80,6 @@ class automatelogin():
         self.glob.kill('chromedriver.exe')
 
     def phone(self):
-        self.glob.kill('chrome.exe')
         self.phonesystemlogin = webmate('http://admin.phonesystem.yourclg.com/cti/')
         self.phonesystemlogin.loadDriver(PHANTOM=False)
         self.phonesystemlogin.formInput(XPATH='//*[@id="username"]', KEY=self.usuario)
@@ -89,7 +88,6 @@ class automatelogin():
         self.glob.kill('chromedriver.exe')
 
     def logic(self):
-        self.glob.kill('chrome.exe')
         self.logiclogin = webmate('https://clg.irslogics.com/')
         self.logiclogin.loadDriver(PHANTOM=False)
         self.logiclogin.formInput(XPATH='//*[@id="txtUsername2"]', KEY=self.usuario + "@consumerlaw.com")
@@ -98,7 +96,6 @@ class automatelogin():
         self.glob.kill('chromedriver.exe')
 
     def email(self):
-        self.glob.kill('chrome.exe')
         self.emaillogin = webmate('https://goo.gl/qixfyG')
         self.emaillogin.loadDriver(PHANTOM='False')
         self.emaillogin.formInput(XPATH='//*[@id="cred_userid_inputtext"]', KEY=self.usuario + "@consumerlaw.com")
