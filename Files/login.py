@@ -40,7 +40,7 @@ class automatelogin():
                         quit()
                     
         else:
-            y = pg.confirm(text="Wrong Username/Password", title="Consumer Law Group", buttons=["Try again", "Quit"])
+            y = pg.confirm(text="Would you like to quit application or try again?", title="Consumer Law Group", buttons=["Try again", "Quit"])
             if y == "Try again":
                 self.user()
             else:
@@ -54,21 +54,33 @@ class automatelogin():
             if self.startButton == '\n    Office    \n':
                 self.office()
                 time.sleep(sleep)
-                break
+                return self.main()
+                
             elif self.startButton == '\nPhone System\n':
-                self.phone()
-                time.sleep(sleep)
-                break
+                try:
+                    self.phone()
+                    time.sleep(sleep)
+                    return self.main()
+                except:
+                    pg.alert(text="error 111", title="Consuemr Law Group")
+                    return self.main()
+            
             elif self.startButton == '\n     Logic     \n':
-                self.logic()
-                time.sleep(sleep)
-                break
+                try:
+                    self.logic()
+                    time.sleep(sleep)
+                    return self.main()
+                except:
+                    pg.alert(text="error 111", title="Consuemr Law Group")
+                    return self.main()
+            
             elif self.startButton == '\nEmail(Correo)\n':
                 self.email()
                 time.sleep(sleep)
-                break
+                return self.main()
+            
             else:
-                break
+                quit()
     
             
     def office(self):

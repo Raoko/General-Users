@@ -2,7 +2,7 @@ import urllib2
 import zipfile
 import time
 
-
+#DOWNLOAD FILE
 def install(url):
     file_name = url.split('/')[-1]
     u = urllib2.urlopen(url)
@@ -28,10 +28,14 @@ def install(url):
 
 install("https://chromedriver.storage.googleapis.com/2.32/chromedriver_win32.zip")
 
-
+#EXTRACT
 time.sleep(5)
 file_zipped = zipfile.ZipFile('chromedriver_win32.zip', 'r')
 file_zipped.extractall()
 file_zipped.close()
+
+
+
+
 
 
