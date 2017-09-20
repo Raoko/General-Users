@@ -1,14 +1,19 @@
 #DEVELOPER ONLY!
 #RUN ON CONSOLE
-#    "Python setup.py py2exe"
-#without the quotaions
 #
+#    "Python setup.py py2exe"
+#
+#without the quotaions
+#Sorry for the messy script
+
 from distutils.core import setup
 import py2exe
 import Files
 import subprocess
 import time
-
+#Start
+print "STARTING DOWNLOAD\n\n"
+print "Please dont close console\n\n"
 wd_path = 'C:\\Python27\\Lib\\site-packages\\selenium\\webdriver'
 required_data_files = [('selenium/webdriver/remote',['{}\\remote\\getAttribute.js'.format(wd_path),'{}\\remote\\isDisplayed.js'.format(wd_path)])]
 
@@ -30,16 +35,14 @@ setup(
       )
 
 print "\nINSTALLING DRIVER...\n\n"
-
 setup(windows=["Files\install_driver.py"])
-
 #opens driver
 #WINDOWS ONLY
 sleep = 3
 time.sleep(sleep)
 subprocess.call(["dist\install_driver.exe"])
-
 print "\nDOWNLOAD COMPLETE!!\n\n\n"
+#Done
                  
 
 
