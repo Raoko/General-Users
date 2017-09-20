@@ -1,6 +1,7 @@
 from Webmate import webmate
 import pyautogui as pg
 import time
+import sys
 
 '''
 Download the following:
@@ -37,14 +38,14 @@ class automatelogin():
                     if x == "Try again":
                         self.user()
                     else:
-                        quit()
+                        sys.exit()
                     
         else:
             y = pg.confirm(text="Would you like to quit application or try again?", title="Consumer Law Group", buttons=["Try again", "Quit"])
             if y == "Try again":
                 self.user()
             else:
-                quit()
+                sys.exit()
                 
               
     def main(self):
