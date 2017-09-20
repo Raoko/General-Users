@@ -93,11 +93,11 @@ class automatelogin():
         self.glob.kill('chromedriver.exe')
 
     def phone(self):
-        self.phonesystemlogin = webmate('http://admin.phonesystem.yourclg.com/cti/')
+        self.phonesystemlogin = webmate('http://agents.phonesystem.yourclg.com/agents/')
         self.phonesystemlogin.loadDriver(PHANTOM=False)
         self.phonesystemlogin.formInput(XPATH='//*[@id="username"]', KEY=self.usuario)
         self.phonesystemlogin.formInput(XPATH='//*[@id="password"]', KEY='clg1234!')
-        self.phonesystemlogin.buttonClick(XPATH='//*[@id="button"]')
+        self.phonesystemlogin.buttonClick(XPATH='//*[@id="loginButton"]')
         self.glob.kill('chromedriver.exe')
 
     def logic(self):
