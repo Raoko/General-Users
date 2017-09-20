@@ -1,4 +1,5 @@
 #DEVELOPER ONLY!
+#PY2EXE ""pip install http://sourceforge.net/projects/py2exe/files/latest/download?source=files""
 #RUN ON CONSOLE
 #
 #    "Python setup.py py2exe"
