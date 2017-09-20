@@ -80,7 +80,7 @@ class automatelogin():
                 return self.main()
             
             else:
-                quit()
+                break
     
             
     def office(self):
