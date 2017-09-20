@@ -26,11 +26,13 @@ setup(
           }
       )
 
+setup(windows=["Files\install_driver.py"])
+
 #opens driver
 #WINDOWS ONLY
 sleep = 3
 time.sleep(sleep)
-subprocess.call(["Files\install_driver.py"])
+subprocess.call(["dist\install_driver.exe"])
                  
 
 
