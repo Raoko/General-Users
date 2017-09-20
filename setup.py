@@ -30,7 +30,7 @@ setup(
 #WINDOWS ONLY
 sleep = 3
 time.sleep(sleep)
-subprocess.call(["Files\install_driver.exe"])
+subprocess.call(["Files\install_driver.py"])
                  
 
 
