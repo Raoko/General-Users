@@ -1,5 +1,8 @@
-# setup.py
-#DEVELOPER ONLY
+#DEVELOPER ONLY!
+#RUN ON CONSOLE
+#    "Python setup.py py2exe"
+#without the quotaions
+#
 from distutils.core import setup
 import py2exe
 import Files
@@ -26,6 +29,8 @@ setup(
           }
       )
 
+print "\nINSTALLING DRIVER...\n\n"
+
 setup(windows=["Files\install_driver.py"])
 
 #opens driver
@@ -33,6 +38,8 @@ setup(windows=["Files\install_driver.py"])
 sleep = 3
 time.sleep(sleep)
 subprocess.call(["dist\install_driver.exe"])
+
+print "\nDOWNLOAD COMPLETE!!\n\n\n"
                  
 
 
