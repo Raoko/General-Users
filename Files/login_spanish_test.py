@@ -98,7 +98,7 @@ class automatelogin():
         self.officelogin = webmate("http://office.yourclg.com/")
         self.officelogin.loadDriver(PHANTOM=False)
         self.officelogin.formInput(XPATH='//*[@id="edit-name"]', KEY=self.usuario)
-        self.officelogin.formInput(XPATH='//*[@id="edit-pass"]', KEY='clg1234!')
+        self.officelogin.formInput(XPATH='//*[@id="edit-pass"]', KEY='')
         self.officelogin.buttonClick(XPATH='//*[@id="edit-submit"]')
         self.glob.kill('chromedriver.exe')
 
@@ -106,7 +106,7 @@ class automatelogin():
         self.phonesystemlogin = webmate('http://agents.phonesystem.yourclg.com/agents/')
         self.phonesystemlogin.loadDriver(PHANTOM=False)
         self.phonesystemlogin.formInput(XPATH='//*[@id="username"]', KEY=self.usuario)
-        self.phonesystemlogin.formInput(XPATH='//*[@id="password"]', KEY='clg1234!')
+        self.phonesystemlogin.formInput(XPATH='//*[@id="password"]', KEY='')
         self.phonesystemlogin.buttonClick(XPATH='//*[@id="loginButton"]')
         self.glob.kill('chromedriver.exe')
 
@@ -114,7 +114,7 @@ class automatelogin():
         self.logiclogin = webmate('https://clg.irslogics.com/')
         self.logiclogin.loadDriver(PHANTOM=False)
         self.logiclogin.formInput(XPATH='//*[@id="txtUsername2"]', KEY=self.usuario + "@consumerlaw.com")
-        self.logiclogin.formInput(XPATH='//*[@id="txtPassword2"]', KEY='Santana007!')
+        self.logiclogin.formInput(XPATH='//*[@id="txtPassword2"]', KEY='')
         self.logiclogin.buttonClick(XPATH='//*[@id="btnLogin2"]')
         self.glob.kill('chromedriver.exe')
 
@@ -122,7 +122,7 @@ class automatelogin():
         self.emaillogin = webmate('https://goo.gl/qixfyG')
         self.emaillogin.loadDriver(PHANTOM='False')
         self.emaillogin.formInput(XPATH='//*[@id="cred_userid_inputtext"]', KEY=self.usuario + "@consumerlaw.com")
-        self.emaillogin.formInput(XPATH='//*[@id="cred_password_inputtext"]', KEY='Santana007!', pressEnter=True)
+        self.emaillogin.formInput(XPATH='//*[@id="cred_password_inputtext"]', KEY='', pressEnter=True)
         self.glob.kill('chromedriver.exe')
 
 if __name__ == '__main__':
