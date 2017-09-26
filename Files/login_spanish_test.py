@@ -21,47 +21,26 @@ class automatelogin():
 
     def __init__(self):
         self.glob = webmate()
-        self.frm = loginbox(title="CLG Login", color1="grey", color2="white", font=13, header="Consumer Law Group", username="Romeo", password='Santana')
+        self.users = [
+                    "general1",
+                    "general2",
+                    "general3"
+                     ]
+        print self.users
+        self.frm = loginbox(title="CLG Login", color1="grey", color2="white", font=13, header="Consumer Law Group", username=self.users[0] or self.users[1], password='Santana')
         self.frm.frame()
         self.frm.start()
         if self.frm.login == True:
-            self.user()
             self.main()
         elif self.frm.login == "close":
             sys.exit()
         else:
             self.frm.start()
 
-    def user(self):
-        self.users = [
-                    "general1",
-                    "general2",
-                    "general3"
-                        ]
-        self.usuario = pg.prompt(text="Usuario", title="Consumer Law Group")
-        if self.usuario in self.users:
-            for i in range(1):
-                contrasena = pg.password(text="Contrasena", title="Consumer Law Group")
-                if contrasena == "consumer123":
-                    break
-                else:
-                    x = pg.confirm(text="Usuario / contraseña incorrecta", title="Consumer Law Group", buttons=["Inténtalo de nuevo", "Salir"])
-                    if x == "Inténtalo de nuevo":
-                        self.user()
-                    else:
-                        sys.exit()
-
-        else:
-            y = pg.confirm(text="¿Desea salir de la aplicación o intentarlo de nuevo?", title="Consumer Law Group", buttons=["Inténtalo de nuevo", "Salir"])
-            if y == "Inténtalo de nuevo":
-                self.user()
-            else:
-                sys.exit()
-
     def main(self):
         while True:
             sleep = 0.1 #seconds of sleep
-            self.startButton = pg.confirm(text='\n\n\nCLG USUARIO:     ' + self.usuario + '\n\n', title='Consumer Law Group',buttons=['\n    Office    \n', '\nPhone System\n', '\n     Logic     \n', '\nEmail(Correo)\n'])
+            self.startButton = pg.confirm(text='\n\n\nCLG USUARIO:     ' + self.frm.username + '\n\n', title='Consumer Law Group',buttons=['\n    Office    \n', '\nPhone System\n', '\n     Logic     \n', '\nEmail(Correo)\n'])
             if self.startButton == '\n    Office    \n':
                 self.office()
                 time.sleep(sleep)
@@ -97,32 +76,32 @@ class automatelogin():
     def office(self):
         self.officelogin = webmate("http://office.yourclg.com/")
         self.officelogin.loadDriver(PHANTOM=False)
-        self.officelogin.formInput(XPATH='//*[@id="edit-name"]', KEY=self.usuario)
-        self.officelogin.formInput(XPATH='//*[@id="edit-pass"]', KEY='')
+        self.officelogin.formInput(XPATH='//*[@id="edit-name"]', KEY=self.frm.username)
+        self.officelogin.formInput(XPATH='//*[@id="edit-pass"]', KEY='clg1234!')
         self.officelogin.buttonClick(XPATH='//*[@id="edit-submit"]')
         self.glob.kill('chromedriver.exe')
 
     def phone(self):
         self.phonesystemlogin = webmate('http://agents.phonesystem.yourclg.com/agents/')
         self.phonesystemlogin.loadDriver(PHANTOM=False)
-        self.phonesystemlogin.formInput(XPATH='//*[@id="username"]', KEY=self.usuario)
-        self.phonesystemlogin.formInput(XPATH='//*[@id="password"]', KEY='')
+        self.phonesystemlogin.formInput(XPATH='//*[@id="username"]', KEY=self.frm.username)
+        self.phonesystemlogin.formInput(XPATH='//*[@id="password"]', KEY='clg1234!')
         self.phonesystemlogin.buttonClick(XPATH='//*[@id="loginButton"]')
         self.glob.kill('chromedriver.exe')
 
     def logic(self):
         self.logiclogin = webmate('https://clg.irslogics.com/')
         self.logiclogin.loadDriver(PHANTOM=False)
-        self.logiclogin.formInput(XPATH='//*[@id="txtUsername2"]', KEY=self.usuario + "@consumerlaw.com")
-        self.logiclogin.formInput(XPATH='//*[@id="txtPassword2"]', KEY='')
+        self.logiclogin.formInput(XPATH='//*[@id="txtUsername2"]', KEY=self.frm.username + "@consumerlaw.com")
+        self.logiclogin.formInput(XPATH='//*[@id="txtPassword2"]', KEY='Santana007!')
         self.logiclogin.buttonClick(XPATH='//*[@id="btnLogin2"]')
         self.glob.kill('chromedriver.exe')
 
     def email(self):
         self.emaillogin = webmate('https://goo.gl/qixfyG')
         self.emaillogin.loadDriver(PHANTOM='False')
-        self.emaillogin.formInput(XPATH='//*[@id="cred_userid_inputtext"]', KEY=self.usuario + "@consumerlaw.com")
-        self.emaillogin.formInput(XPATH='//*[@id="cred_password_inputtext"]', KEY='', pressEnter=True)
+        self.emaillogin.formInput(XPATH='//*[@id="cred_userid_inputtext"]', KEY=self.frm.username + "@consumerlaw.com")
+        self.emaillogin.formInput(XPATH='//*[@id="cred_password_inputtext"]', KEY='Santana007!', pressEnter=True)
         self.glob.kill('chromedriver.exe')
 
 if __name__ == '__main__':
